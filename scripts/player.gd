@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
 func _physics_process(delta: float) -> void:
@@ -28,13 +29,14 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = 1
 
 		
-	if is_on_floor():
+	if is_on_floor() and animated_sprite.animation != "death":
 		if direction == 0:
 			animated_sprite.animation = "idle"
 		else:
 			animated_sprite.animation = "run"
-	else:
+	elif !is_on_floor() and animated_sprite.animation != "death":
 		animated_sprite.animation = "jump"
+		print("jump animation")
 		
 		
 	# apply movement
