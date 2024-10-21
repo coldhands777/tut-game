@@ -18,8 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print ("you died")
 	
 	body.get_node("AnimatedSprite2D").animation = "death"
-	body.get_node("CollisionShape2D").set_deferred("disabled", true)
-	print("death animation")
+	body.get_node("CollisionShape2D").queue_free()
 	Engine.time_scale = 0.5
 	timer.start()
 	

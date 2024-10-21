@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.animation = "run"
 	elif !is_on_floor() and animated_sprite.animation != "death":
 		animated_sprite.animation = "jump"
-		print("jump animation")
+		
 		
 		
 	# apply movement
