@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cgehfn8u1fyxa"]
+[gd_scene load_steps=17 format=4 uid="uid://cgehfn8u1fyxa"]
 
 [ext_resource type="PackedScene" uid="uid://b4cwfw8e5mfo5" path="res://scenes/player.tscn" id="1_xia5q"]
 [ext_resource type="Texture2D" uid="uid://cruffe7qoo4k7" path="res://assets/sprites/world_tileset.png" id="2_kgutk"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dc856gj6apxna" path="res://scenes/Coin.tscn" id="5_n3yyi"]
 [ext_resource type="PackedScene" uid="uid://crmdo6k3u62r3" path="res://scenes/killzone.tscn" id="6_l501y"]
 [ext_resource type="PackedScene" uid="uid://bvo22hsj0h2jo" path="res://scenes/green_slime.tscn" id="7_d6d6y"]
+[ext_resource type="FontFile" uid="uid://pka0xrvih2cj" path="res://assets/fonts/PixelOperator8.ttf" id="7_h8sbv"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="8_a4qxd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w2xe5"]
 texture = ExtResource("2_kgutk")
@@ -423,3 +425,20 @@ autoplay = "move"
 
 [node name="Green Slime" parent="." instance=ExtResource("7_d6d6y")]
 position = Vector2(227, -27)
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_a4qxd")
+
+[node name="Score_label" type="Label" parent="GameManager"]
+offset_left = 539.0
+offset_top = -285.0
+offset_right = 609.0
+offset_bottom = -255.0
+theme_override_fonts/font = ExtResource("7_h8sbv")
+theme_override_font_sizes/font_size = 8
+text = "You have collected 0 coins"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Audio" type="Node" parent="."]
